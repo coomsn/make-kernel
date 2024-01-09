@@ -19,3 +19,11 @@ for /f %i in ('go run .\cmd\internal\read_tag') do ( set VERSION=%i )
 ```
 go build -o .\build\ -trimpath -ldflags "-X 'github.com/sagernet/sing-box/constant.Version=%VERSION%' -s -w -buildid=" -tags "with_quic with_grpc with_dhcp with_wireguard with_ech with_utls with_reality_server with_acme with_clash_api with_v2ray_api with_gvisor with_shadowsocksr with_proxy_provider" .\cmd\sing-box
 ```
+
+跟编译Android端的相比就是注释掉
+::set GOOS=android
+::set GOARCH=arm64
+::set CGO_ENABLED=1
+::set CC="E:\Android\Sdk\ndk\26.1.10909125\toolchains\llvm\prebuilt\windows-x86_64\bin\aarch64-linux-android34-clang"
+这几条设置环境的
+然后删掉clang的编译优化就行
