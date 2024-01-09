@@ -1,1 +1,2 @@
-https://github.com/sagernet/sing-box
+::git clone https://github.com/sagernet/sing-box
+::git clone -b building https://github.com/PuerNya/sing-box sing-box_unofficial
